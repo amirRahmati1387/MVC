@@ -1,7 +1,7 @@
 <?php
 
-include("App/autoload.php");
-include("App/router.php");
+include("app/autoload.php");
 
-$router = new router($key);
-$rotKey = $router -> uriArray();
+$rotKey = router::router();
+
+controlRouter::controlRouter($rotKey[2]);

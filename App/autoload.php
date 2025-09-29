@@ -2,15 +2,16 @@
 
 class autoload{
     public function autoload($className){
-        if(in_array($className,["product","category","user","footer","model","mainDB"])){
+        if(in_array($className,["mainDB","model","user"])){
             $addres = "model/".$className.".php";
         }
-        if(in_array($className,["productController","categoryController","userController","footerController"])){
-            $addres = "controller/".$className."php";
+        if(in_array($className,["userController"])){
+            $addres = "controller/".$className.".php";
         }
-        if(in_array($className,["router","loadFile","routList","controlRouter","facade"])){
+        if(in_array($className,["router","loadFile","routList","controlRouter","facade","getRequest","callControllerMethod"])){
             $addres = "app/".$className.".php";
-        }else{
+        }
+        if(!$addres){
             $addres = "view/".$className.".php";
         }
         include($addres);
@@ -18,5 +19,3 @@ class autoload{
 }
 $autoload = new autoload;
 spl_autoload_register([$autoload,"autoload"]);
-
-

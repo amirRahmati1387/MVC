@@ -10,7 +10,7 @@ class model extends facade{
             $filds = ['*'];
         }
         $this -> type = "select";
-        $this -> base = "SELECT".implode(",",$filds);
+        $this -> base = "SELECT ".implode(",",$filds);
         return $this;
     }
 

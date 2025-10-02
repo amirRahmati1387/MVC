@@ -2,44 +2,19 @@
 
 include("app/autoload.php");
 
-$rotKey = router::router();
+$rotKey = request::request();
 
-$routArray = controlRouter::controlRouter($rotKey[2]);
+$routArray = requestManagement::requestManagement($rotKey[2]);
 
+// $controlIdOfRequest = new controlIdOfRequest;
 
-$callControllerMethod = new callControllerMethod;
-$callControllerMethod -> callMethod(new $routArray[0],$routArray[1],$rotKey[2]);
+// $id = $controlIdOfRequest -> controlIdOfRequest($routArray,$rotKey);
 
+$mamad = new controlIdOfRequest;
 
+$router = new router;
 
-/*
-
-$request = "localhost/MVC/user/4/7/listUser/56";
-
-$route = "/user/{id}/{postid}/listUser/{x}";
-
-
-$requestKey = explode("/",$request);
-
-$routeKey = explode("/",$route);
-
-
-for($i = 0 ; $i < count($routeKey) ; $i++){
-    if(str_contains($routeKey[$i],"{")){
-        $m = ltrim($routeKey[$i],"{");
-        $q[] = rtrim($m,"}");
-        $hamed[] = $requestKey[$i + 1];
-    }
+foreach($routArray as $key => $value){
+    $router -> router(new $value[0],$value[1],$rotKey[2],$id);
 }
-
-for($j = 0 ; $j < count($q) ; $j++){
-    $mamad[] = [$q[$j] => $hamed[$j]];
-}
-
-// foreach($q as $mamad){
-//     foreach($x1 as $ali){
-//         [$mamad =>[$ali]];
-//     }
-// }
-var_dump($mamad);
-*/
+//controlIdOfRequest

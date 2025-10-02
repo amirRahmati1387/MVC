@@ -1,7 +1,12 @@
 <?php
 
 class router{
-    public static function router(){
-        return $request = explode("/",include("getRequest.php"));
+    public function router($obj,$method,$fileName,$id){
+        if(!isset($id)){
+            $obj -> $method($fileName);
+        }
+        if(isset($id)){
+            $obj -> $method($fileName,$id);
+        }
     }
 }

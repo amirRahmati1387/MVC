@@ -15,13 +15,13 @@ class model extends facade{
     }
 
     protected function find($id){
-        return $this -> select($id[0]) -> where(["id",$id,"="]) -> get();
+        return $this -> select() -> where(["id",$id[0],"="]) -> get();
     }
 
     protected function delete($id){
         $this -> type = "delete";
         $this -> base = "DELETE ";
-        $this -> where(["id",$id,"="]) -> get();
+        $this -> where(["id",$id[0],"="]) -> get();
     }
 
     protected function create($post){
@@ -75,7 +75,7 @@ class model extends facade{
         }
         return $array;
     }
-    
+
     protected function getSql(){
         $crud = $this -> base;
         if(isset($this -> where)){

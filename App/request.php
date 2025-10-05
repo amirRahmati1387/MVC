@@ -1,7 +1,8 @@
 <?php
 
 class request{
-    public static function request(){
-        return explode("/",include("getRequest.php"));
+    public static function requestCapture(){
+        $requestKey = explode("/",include("getRequest.php"));
+        return requestManagement::requestManagement($requestKey);
     }
 }

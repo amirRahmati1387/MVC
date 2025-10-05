@@ -1,7 +1,7 @@
 <?php
 
 class router{
-    public function router($obj,$method,$fileName,$id){
+    public static function router($obj,$method,$fileName,$id){
         if(!isset($id)){
             $obj -> $method($fileName);
         }
